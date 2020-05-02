@@ -92,7 +92,8 @@ const cmEditor = new CodeMirror(
         autofocus: true,
         lineNumbers: true,
         lineWrapping: true,
-        styleActiveLine: true
+        styleActiveLine: true,
+        theme: uDom.isDark() ? 'blackboard' : 'default',
     }
 );
 

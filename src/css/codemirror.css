@@ -98,5 +98,6 @@
     }
 /* This probably needs to be added to CodeMirror repo */
 .CodeMirror-merge-gap {
+    background-color: transparent;
     vertical-align: top;
     }

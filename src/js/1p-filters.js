@@ -36,6 +36,7 @@ const cmEditor = new CodeMirror(
         lineNumbers: true,
         lineWrapping: true,
         styleActiveLine: true,
+        theme: uDom.isDark() ? 'blackboard' : 'default',
     }
 );
 

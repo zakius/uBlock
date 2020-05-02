@@ -112,7 +112,7 @@ self.uBlockDashboard.dateNowToSensibleString = function() {
 
 /******************************************************************************/
 
-self.uBlockDashboard.patchCodeMirrorEditor = (function() {
+self.uBlockDashboard.patchCodeMirrorEditor = (( ) => {
     let grabFocusTimer;
     let grabFocusTarget;
 

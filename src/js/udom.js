@@ -112,6 +112,7 @@ DOMListFactory.nodeFromSelector = function(selector) {
     if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
         root.classList.add('dark');
     }
+    DOMListFactory.isDark = ( ) => root.classList.contains('dark');
 }
 
 /******************************************************************************/

@@ -39,7 +39,8 @@ const mergeView = new CodeMirror.MergeView(
         lineWrapping: false,
         origLeft: '',
         revertButtons: true,
-        value: ''
+        theme: uDom.isDark() ? 'blackboard' : 'default',
+        value: '',
     }
 );
 mergeView.editor().setOption('styleActiveLine', true);
