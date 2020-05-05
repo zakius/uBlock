@@ -63,6 +63,8 @@
     Components
 */
 :root {
+    --font-size: 14px;
+
     --default-ink: var(--ink-80);
     --default-ink-a4: var(--ink-80-a4);
     --default-ink-a50: var(--ink-80-a50);
