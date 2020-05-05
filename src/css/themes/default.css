@@ -18,7 +18,7 @@
     --dark-gray-50: #32313c;
     --dark-gray-80: #1c1b22;
     --dark-gray-90: #15141a;
-    --ink-20: #312a64;
+    --ink-20: #312a65;
     --ink-50: #291d4f;
     --ink-80: #20123a;
     --ink-80-a4: #20123a0a;
@@ -36,7 +36,7 @@
     --light-gray-60: #afafba;
     --light-gray-70: #9f9fad;
     --light-gray-90: #80808f;
-    --red-70-a80: #c50042cc;
+    --red-60: #e22850;
     --violet-40: #ab71ff;
     --violet-70: #592acb;
     --violet-80: #45278d;
@@ -102,10 +102,14 @@
     --button-disabled-filter: opacity(38%);
     --button-disabled-surface: var(--light-gray-30);
     --button-disabled-ink: var(--ink-20);
+    --button-preferred-surface: var(--ink-20);
+    --button-preferred-ink: white;
 
     --checkbox-size: calc(var(--font-size) + 2px);
     --checkbox-ink: var(--light-gray-90);
     --checkbox-checked-ink: var(--ink-20);
+
+    --select-surface: white;
 
     --bg-transient-notice: hsla(60, 100%, 95%, 1);
 
@@ -151,7 +155,7 @@
     --bg-popup-cell-block: hsla(0, 50%, 80%, 1);
     --bg-popup-cell-block-own: hsla(0, 100%, 40%, 1);
     --bg-popup-cell-label-mixed: hsla(45, 100%, 38%, 1);
-    --popup-icon-x-ink: var(--red-70-a80);
+    --popup-icon-x-ink: var(--red-60);
 }
 
 /**

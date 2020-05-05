@@ -1,7 +1,4 @@
  /* External CSS values override */
-.fa-icon {
-    padding: 0 0.1em;
-    }
 .fa-icon.fa-icon-badged > .fa-icon-badge {
     bottom: auto;
     top: -20%;
@@ -70,12 +67,13 @@ hr {
     cursor: pointer;
     display: flex;
     fill: var(--popup-power-ink);
-    flex-grow: 3;
-    font-size: 700%;
+    flex-grow: 1;
+    font-size: 96px;
     justify-content: center;
     margin: 0 var(--popup-gap-thin);
     padding: 0;
     stroke: none;
+    stroke-width: 64;
     }
 body.off #switch {
     fill: var(--default-surface);

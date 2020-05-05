@@ -397,6 +397,9 @@ const renderPrivacyExposure = function() {
 /******************************************************************************/
 
 const updateHnSwitches = function() {
+    uDom.nodeFromId('no-popups').classList.toggle(
+        'on', popupData.noPopups === true
+    );
     uDom.nodeFromId('no-large-media').classList.toggle(
         'on', popupData.noLargeMedia === true
     );
@@ -474,6 +477,11 @@ const renderPopup = function() {
 
     // Extra tools
     updateHnSwitches();
+
+    // Report popup count on badge
+    total = popupData.popupBlockedCount;
+    uDom.nodeFromSelector('#no-popups .fa-icon-badge')
+        .textContent = total ? Math.min(total, 99).toLocaleString() : '';
 
     // Report large media count on badge
     total = popupData.largeMediaCount;
@@ -1142,15 +1150,26 @@ const getPopupData = async function(tabId) {
         tabId = parseInt(matches[1], 10) || 0;
     }
 
+    const nextFrame = ( ) => {
+        return new Promise(resolve => {
+            self.requestAnimationFrame(( ) => { resolve(); });
+        });
+    };
+
     // The purpose of the following code is to reset to a vertical layout
-    // should the viewport be not enough wide to accomodate the horizontal
+    // should the viewport not be enough wide to accomodate the horizontal
     // layout.
-    const checkViewport = function() {
+    // To avoid querying a spurious viewport width -- it happens sometimes,
+    // somehow -- we delay layout-changing operations to the next paint
+    // frames.
+    const checkViewport = async function() {
+        await nextFrame();
+    
         const root = document.querySelector(':root');
         if ( root.classList.contains('desktop') ) {
             const main = document.getElementById('main');
             const firewall = document.getElementById('firewall');
-            const minWidth = Math.floor(main.offsetWidth + firewall.offsetWidth);
+            const minWidth = Math.floor(main.offsetWidth + firewall.offsetWidth) - 4;
             if ( document.body.offsetWidth < minWidth ) {
                 root.classList.remove('desktop');
             } else {
@@ -1160,14 +1179,15 @@ const getPopupData = async function(tabId) {
                 }
             }
         }
-        self.requestAnimationFrame(( ) => {
-            document.body.classList.remove('loading');
-        });
+    
+        await nextFrame();
+    
+        document.body.classList.remove('loading');
     };
 
     getPopupData(tabId).then(( ) => {
         if ( document.readyState !== 'complete' ) {
-            self.addEventListener('load', checkViewport, { once: true });
+            self.addEventListener('load', ( ) => { checkViewport(); }, { once: true });
         } else {
             checkViewport();
         }
