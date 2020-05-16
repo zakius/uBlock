@@ -83,8 +83,8 @@ body.off #switch {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    flex-grow: 2;
     justify-content: space-evenly;
+    width: 25%;
     }
 .rulesetTools [id] {
     background-color: var(--bg-transient-notice);
@@ -128,7 +128,6 @@ body.needSave #revertRules {
 .itemRibbon > [data-i18n] + span {
     justify-self: end;
     text-align: end;
-    white-space: nowrap;
     }
 
 .toolRibbon {
@@ -512,8 +511,8 @@ body:not([data-more~="e"]) [data-more="e"] {
     width: unset;
     }
 :root.desktop #main {
-    max-width: 300px;
-    width: max-content;
+    max-width: 340px;
+    min-width: 290px;
     }
 :root:not(.mobile) #switch:hover {
     background-color: var(--default-surface-hover);

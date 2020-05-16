@@ -94,7 +94,7 @@ const µBlock = (( ) => { // jshint ignore:line
             ignoreGenericCosmeticFilters: vAPI.webextFlavor.soup.has('mobile'),
             largeMediaSize: 50,
             parseAllABPHideFilters: true,
-            popupPanelSections: 0b1111,
+            popupPanelSections: 0b111,
             prefetchingDisabled: true,
             requestLogMaxEntries: 1000,
             showIconBadge: true,
@@ -135,7 +135,7 @@ const µBlock = (( ) => { // jshint ignore:line
 
         // Read-only
         systemSettings: {
-            compiledMagic: 26,  // Increase when compiled format changes
+            compiledMagic: 27,  // Increase when compiled format changes
             selfieMagic: 26,    // Increase when selfie format changes
         },
 
