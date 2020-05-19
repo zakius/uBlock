@@ -233,7 +233,7 @@
     --fg-0-20: hsla(0, 0%, 53%, 0.2) !important;
     --link-ink: var(--light-gray-90) !important; /*web link color*/
     --fieldset-header-surface: transparent;
-    --fieldset-header-ink: var(--light-gray-10-a4) !important; /*used in settings for Privacy Default behavior, used in My Rules for Perma and Temp Rules Headers*/
+    --fieldset-header-ink: var(--light-gray-30-a50)) !important; /*used in settings for Privacy Default behavior, used in My Rules for Perma and Temp Rules Headers*/
     --hor-separator-color: var(--dark-gray-90) !important;
     --button-surface: var(--dark-gray-30) !important; /*affects Firewall container rows on uBo main panel*/
     --button-ink: var(--dark-gray-80) !important; /*color of text and icon inside button*/ /*applied to My Filters tab*/
