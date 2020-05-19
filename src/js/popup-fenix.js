@@ -30,14 +30,13 @@
 
 /******************************************************************************/
 
-/*
-let popupFontSize;
+
+let popupFontSize = 'unset';
 vAPI.localStorage.getItemAsync('popupFontSize').then(value => {
     if ( typeof value !== 'string' || value === 'unset' ) { return; }
-    document.body.style.setProperty('font-size', value);
+    document.body.style.setProperty('--font-size', value);
     popupFontSize = value;
 });
-*/
 
 // https://github.com/chrisaljoudi/uBlock/issues/996
 //   Experimental: mitigate glitchy popup UI: immediately set the firewall
@@ -153,11 +152,42 @@ const hashFromPopupData = function(reset) {
 const formatNumber = function(count) {
     if ( typeof count !== 'number' ) { return ''; }
     if ( count < 1e6 ) { return count.toLocaleString(); }
-    return count.toLocaleString(undefined, {
-        notation: 'compact',
-        maximumSignificantDigits: 4,
-    });
+
+    if (
+        intlNumberFormat === undefined &&
+        Intl.NumberFormat instanceof Function
+    ) {
+        const intl = new Intl.NumberFormat(undefined, {
+            notation: 'compact',
+            maximumSignificantDigits: 4
+        });
+        if (
+            intl.resolvedOptions instanceof Function &&
+            intl.resolvedOptions().hasOwnProperty('notation')
+        ) {
+            intlNumberFormat = intl;
+        }
+    }
+
+    if ( intlNumberFormat ) {
+        return intlNumberFormat.format(count);
+    }
+
+    // https://github.com/uBlockOrigin/uBlock-issues/issues/1027#issuecomment-629696676
+    //   For platforms which do not support proper number formatting, use
+    //   a poor's man compact form, which unfortunately is not i18n-friendly.
+    count /= 1000000;
+    if ( count >= 100 ) {
+      count = Math.floor(count * 10) / 10;
+    } else if ( count > 10 ) {
+      count = Math.floor(count * 100) / 100;
+    } else {
+      count = Math.floor(count * 1000) / 1000;
+    }
+    return (count).toLocaleString(undefined) + '\u2009M';
 };
+
+let intlNumberFormat;
 
 /******************************************************************************/
 
@@ -581,18 +611,16 @@ let renderOnce = function() {
 
     const body = document.body;
 
-/*
     if ( popupData.fontSize !== popupFontSize ) {
         popupFontSize = popupData.fontSize;
         if ( popupFontSize !== 'unset' ) {
-            body.style.setProperty('font-size', popupFontSize);
+            body.style.setProperty('--font-size', popupFontSize);
             vAPI.localStorage.setItem('popupFontSize', popupFontSize);
         } else {
-            body.style.removeProperty('font-size');
+            body.style.removeProperty('--font-size');
             vAPI.localStorage.removeItem('popupFontSize');
         }
     }
-*/
 
     uDom.nodeFromId('version').textContent = popupData.appVersion;
 
@@ -1173,18 +1201,22 @@ const getPopupData = async function(tabId) {
     const checkViewport = async function() {
         const root = document.querySelector(':root');
         if ( root.classList.contains('desktop') ) {
-            const main = document.getElementById('main');
-            const sticky = document.getElementById('sticky');
-            const stickyParent = sticky.parentElement;
-            if ( stickyParent !== main ) {
-                main.prepend(sticky);
-            }
             await nextFrames(4);
+            const main = document.getElementById('main');
             const firewall = document.getElementById('firewall');
             const minWidth = (main.offsetWidth + firewall.offsetWidth) / 1.1;
             if ( window.innerWidth < minWidth ) {
-                stickyParent.prepend(sticky);
-                root.classList.remove('desktop');
+                root.classList.add('portrait');
+            }
+        } else if ( root.classList.contains('mobile') ) {
+            root.classList.add('portrait');
+        }
+        if ( root.classList.contains('portrait') ) {
+            const panes = document.getElementById('panes');
+            const sticky = document.getElementById('sticky');
+            const stickyParent = sticky.parentElement;
+            if ( stickyParent !== panes ) {
+                panes.prepend(sticky);
             }
         }
         await nextFrames(1);
