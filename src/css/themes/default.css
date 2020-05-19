@@ -191,23 +191,116 @@
       https://material.io/design/color/dark-theme.html
 */
 :root.dark {
-    --default-ink: var(--light-gray-10);
-    --default-ink-a4: var(--light-gray-10-a4);
-    --default-surface: var(--dark-gray-90);
-    --default-surface-hover: var(--dark-gray-50);
-    --button-ink: var(--default-ink);
-    --button-surface: var(--light-gray-10-a12);
-    --button-surface-hover: var(--light-gray-10-a16);
-    --checkbox-ink: var(--default-ink);
-    --checkbox-checked-ink: #bb86fc;
-    --dashboard-bar-shadow:
-        0px 0px 0px 1px var(--default-ink-a4);
-    --dashboard-tab-active-ink: #bb86fc;
-    --fieldset-header-ink: var(--light-gray-30);
-    --hor-separator-color: var(--dark-gray-50);
-    --link-ink: #bb86fc;
+    --font-size: 12px;
+    --default-ink: #888888 !important; /*default font color for most of the text in uBo*/
+    --default-ink-a4: #8888880a !important;
+    --default-ink-a50: #88888888 !important; /*icon fill color for saveRules, revertRules and refresh*/
+    --default-surface: #15141a !important; /*deals with most white full screen backgrounds like Logger Ui, settings, about*/ /*used for checkmark color stoke*/
+    --default-surface-hover: #32313c !important; /*highlight color for popup app and dashboard tabs*/
+     --bg-1: hsla(0, 0%, 0%, 1) !important; /* color of the ribbon across screen where the search bar is in My Filters*/
+    --bg-1-border: hsla(0, 0%, 0%, 1) !important;
+    --bg-overlay-50: #0008 !important;
+    --bg-code: hsla(0, 2%, 0%, 0.8) !important;
+    --fg-0-80: hsla(0, 0%, 53%, 0.8) !important;
+    --fg-0-70: hsla(0, 0%, 53%, 0.7) !important; /*uBo popup logger version lines for domains and requests*/
+    --fg-0-60: #4C566A !important; /*used for the number of filters in use in Filter Lists section | My Rules filter icon */
+    --fg-0-50: hsla(0, 0%, 53%, 0.5) !important; /*uBo popup logger version refresh button*/
+     --fg-0-40: #888888 !important; /*Extra Tools bar in uBo popup logger version*/
+    --fg-0-30: hsla(0, 0%, 53%, 0.3) !important;
+    --fg-0-20: hsla(0, 0%, 53%, 0.2) !important;
+    --link-ink: #8ad !important; /*web link color*/
+    --fieldset-header-surface: transparent;
+    --fieldset-header-ink: #4C566A !important; /*used in settings for Privacy Default behavior, used in My Rules for Perma and Temp Rules Headers*/
+    --hor-separator-color: #000 !important;
+    --button-surface: #4C566A !important; /*affects Firewall container rows on uBo main panel*/
+    --button-ink: #5E81AC !important; /*color of text and icon inside button*/ /*applied to My Filters tab*/
+    --button-surface-hover: #32313c !important;
+    --button-active-surface: #d8DEE9 !important;
+    --button-important-surface: #4a4f59 !important;
+    --button-important-surface-hover: #454e5e !important;
+    --button-disabled-filter: opacity(38%);
+    --button-disabled-surface: #4C566A !important;
+    --button-disabled-ink: #999999a0 !important;
+    --button-preferred-surface: #999999a0 !important;
+    --button-preferred-ink: #4C566A !important;
+    --checkbox-size: calc(var(--font-size) + 2px);
+    --checkbox-ink: #80808f; /*non-checked box border color*/
+    --checkbox-checked-ink: #999999 !important; /*used for the checkmark - uses background-color and border-color*/
+  /*--select-surface:  Appears that this is not used anywhere that I can locate - if you find a spot enter a color value here */
+    --bg-transient-notice: #434c5E !important; /*color for the buttons for saveRules, revertRules and refresh - popup container*/
+    --dashboard-bar-shadow: 0px 0px 0px 1px var(--default-ink-a4), 0px 1px 2px 0px #2200330a, 0px 2px 1px -1px #0730721f, 0px 1px 6px 0px #0e0d1a1f; /*line across screen under tabs*/
+    --dashboard-tab-ink: var(--default-ink);
+    --dashboard-tab-active-ink: #1E90FF !important;
+    --dashboard-tab-surface-hover: var(--default-surface-hover);
+  /* small i icons found throughout the dashboard and logger*/
+    --fg-icon-info-lvl-0-dimmed: #888 !important; /*found in My Rules/Setting tabs*/
+    --fg-icon-info-lvl-0: inherit;
+    --fg-icon-info-lvl-1-dimmed: hsla(240, 100%, 40%, 0.5); /*found in  Filter Lists tab - default view*/
+    --fg-icon-info-lvl-1: hsla(240, 100%, 40%, 1); /* found in Filter Lists tab - hovered over*/
+    --info-lvl-2-ink: var(--yellow-50);
+    --info-lvl-2-ink-hover: var(--yellow-60);
+    --fg-icon-info-lvl-3-dimmed: hsla(16, 100%, 50%, 0.5);/*found in Advanced Settings - default view*/
+    --fg-icon-info-lvl-3: hsla(16, 100%, 50%, 1); /*found in Advanced Settings - hovered over*/
+    --fg-icon-info-lvl-4-dimmed: hsla(0, 100%, 35%, 0.5);
+    --fg-icon-info-lvl-4: hsla(0, 100%, 35%, 1);
+    --large-icon-info-lvl-2: hsla(41, 100%, 47%, 1);
+  /**************************************************************/
+    --bg-tooltip: #15141a !important;
+    --fg-tooltip: #888888a0 !important;
+    --bg-popup-cell-1: #4C566A !important; /*uBo popup window accesible from logger*/
+    --popup-power-ink: #5E81AC !important; /*uBo power icon - on color */
+    --popup-power-disabled-ink: #4C566A!important; /*uBo power icon - off color */
+    --popup-power-ink-hover: #3B4253 !important;
+    --bg-popup-cell-2: #4C566A !important; /*firewall container row line horizontal and vertical colours*/
+    --bg-popup-cell-label-filter: opacity(40%);
+    --fg-popup-cell-cname: #EBCB8B !important;
+    --bg-popup-cell-allow: hsla(120, 40%, 75%, 1);
+    --bg-popup-cell-allow-own: hsla(120, 100%, 30%, 1);
+    --bg-popup-cell-noop: hsla(0, 0%, 75%, 1);
+    --bg-popup-cell-noop-own: hsla(0, 0%, 45%, 1);
+    --bg-popup-cell-block: hsla(0, 50%, 80%, 1);
+    --bg-popup-cell-block-own: hsla(0, 100%, 40%, 1);
+    --bg-popup-cell-label-mixed: hsla(45, 100%, 38%, 1);
+    --popup-icon-x-ink: #e22850 !important;
 
-    --bg-popup-cell-2: var(--dark-gray-50);
+ /* Need to set colors in forms.css for moz-field stuffz
+  -moz-FieldText: #888888 !important;  change from these names to either HEX value or variables.  default-ink
+  -moz-Field: #15141a !important;    var would be var(--dark-gray-90) hex value might be easiest though.
+ /* TO DO 
+ 1. Epicker window box color Variables needed;
+  #ublock0-epicker aside 
+  background-color: var(--dark-gray-90)
+  outer border: var(--dark-gray-90)
+  inner order: var (
+  color: #999999a0
+
+  html#ublock0-epicker, #ublock0-epicker body 
+    background: transparent !important;
+    color: #777 !important;
+    
+ 2. CodeMirror (my filters and Whitelist) ADVANCED SETTINGS (background and color need variables)  
+      .CodeMirror background: (currenty set to white) need a var
+    my Rules tab
+    codemirror panes   CodeMirror-merge-pane CodeMirror-merge-left
+    CodeMirror-merge-pane CodeMirror-merge-editor CodeMirror-merge-pane-rightmost
+    ***** file used is codemirror.css *********
+    
+ 3. #cloudWidget background (linked to img) background is hsl - would be better if we had a background color instead of hsl.
+    ***** file used is cloud-ui.css ********
+ 4. Logger UI screen.  .permatoolbar, modalOverlayContainer : background-color;
+    headers  background-color, color border-color
+    #netFilteringDialog > div.panes > .dynamic .entry background-color: border-bottom:  ; 
+    #netFilteringDialog > div.panes > .dynamic .entry > .action > .allow .noop .block 
+    background-color.
+    #modalOverlayClose stoke: background-color
+    ****** file used is logger-ui.css ******* 
+    *//*
+ 5. Seperator bar - element/selector is hr   in common.css a variable is assigned.  popup-fenix.css
+    border-top - assigned HEX of #e3e2e3 variable should be assinged like in common.css
+    var(--hor-separator-color) 
+ 6. .rulesetTools border color needs a variable
+    **** popup-fenix.css *****
+*/
 }
 
 :root.dark.colorBlind {
