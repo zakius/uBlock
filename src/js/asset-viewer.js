@@ -38,6 +38,7 @@
             lineWrapping: true,
             readOnly: true,
             styleActiveLine: true,
+            theme: uDom.isDark() ? 'blackboard' : 'default',
         }
     );
 
