@@ -201,68 +201,65 @@
 }
 
 :root.dark {
-    --default-ink: var(--light-gray-60) !important; /*default font color for most of the text in uBo*/
-    --default-ink-a4: var(--light-gray-10-a4) !important;
-    --default-ink-a50: var(--light-gray-30-a50) !important; /*icon fill color for saveRules, revertRules and refresh*/
-    --default-surface: var(--dark-gray-90) !important; /*deals with most white full screen backgrounds like Logger Ui, settings, about*/ /*used for checkmark color stoke*/
-    --default-surface-hover: var(--dark-gray-50) !important; /*highlight color for popup app and dashboard tabs*/
-    --bg-1: hsla(250, 13%, 9%, 1) !important; /* color of the ribbon across screen where the search bar is in My Filters*/ /*var(--dark-gray-80)*/
-    --bg-1-border: hsla(250, 13%, 16%, 1) !important; /*used dark-gray-80 but increased from 9% to 13%) HEX#25232e */
-    --bg-overlay-50: #0008 !important;
-    --bg-code: hsla(0, 2%, 0%, 0.8) !important;
-    --fg-0-80: hsla(0, 0%, 53%, 0.8) !important;
-    --fg-0-70: hsla(0, 0%, 53%, 0.7) !important; /*uBo popup logger version lines for domains and requests*/
-    --fg-0-60: hsla(0, 0%, 53%, 0.6) !important; /*used for the number of filters in use in Filter Lists section | My Rules filter icon */
-    --fg-0-50: hsla(0, 0%, 53%, 0.5) !important; /*uBo popup logger version refresh button*/
-    --fg-0-40: hsla(0, 0%, 53%, 0.4) !important; /*Extra Tools bar in uBo popup logger version*/
-    --fg-0-30: hsla(0, 0%, 53%, 0.3) !important;
-    --fg-0-20: hsla(0, 0%, 53%, 0.2) !important;
-    --link-ink: var(--light-gray-90) !important; /*web link color*/
+    --default-ink: var(--light-gray-10);
+    --default-ink-a4: var(--light-gray-10-a4);
+    --default-ink-a50: var(--light-gray-30-a50);
+    --default-surface: var(--dark-gray-90);
+    --default-surface-hover: var(--dark-gray-50);
+    --bg-1: hsla(250, 13%, 9%, 1);
+    --bg-1-border: hsla(250, 13%, 16%, 1);
+    --bg-overlay-50: #0008;
+    --bg-code: hsla(0, 2%, 0%, 0.8);
+    --fg-0-80: hsla(0, 0%, 53%, 0.8);
+    --fg-0-70: hsla(0, 0%, 53%, 0.7);
+    --fg-0-60: hsla(0, 0%, 53%, 0.6);
+    --fg-0-50: hsla(0, 0%, 53%, 0.5);
+    --fg-0-40: hsla(0, 0%, 53%, 0.4);
+    --fg-0-30: hsla(0, 0%, 53%, 0.3);
+    --fg-0-20: hsla(0, 0%, 53%, 0.2);
+    --link-ink: #bb86fc;
     --fieldset-header-surface: transparent;
-    --fieldset-header-ink: var(--light-gray-30-a50)) !important; /*used in settings for Privacy Default behavior, used in My Rules for Perma and Temp Rules Headers*/
-    --hor-separator-color: var(--dark-gray-90) !important;
-    --button-surface: var(--dark-gray-30) !important; /*affects Firewall container rows on uBo main panel*/
-    --button-ink: var(--dark-gray-80) !important; /*color of text and icon inside button*/ /*applied to My Filters tab*/
-    --button-surface-hover: var(--light-gray-60) !important;
-    --button-active-surface: var(--light-gray-70) !important;
-    --button-important-surface: var(--dark-gray-30) !important;
-    --button-important-surface-hover: var(--light-gray-60) !important;
+    --fieldset-header-ink: var(--light-gray-30);
+    --hor-separator-color: var(--dark-gray-50);
+    --button-surface: var(--light-gray-10-a12);
+    --button-ink: var(--default-ink);
+    --button-surface-hover: var(--light-gray-10-a12);
+    --button-active-surface: var(--light-gray-70);
+    --button-important-surface: var(--dark-gray-30);
+    --button-important-surface-hover: var(--light-gray-60);
     --button-disabled-filter: opacity(38%);
-    --button-disabled-surface: var(--dark-gray-50) !important;
-    --button-disabled-ink: var(--light-gray-30-a50) !important;
-    --button-preferred-surface: var(--dark-gray-50) !important;
-    --button-preferred-ink: var(--light-gray-70) !important;
+    --button-disabled-surface: var(--dark-gray-50);
+    --button-disabled-ink: var(--light-gray-30-a50);
+    --button-preferred-surface: var(--dark-gray-50);
+    --button-preferred-ink: var(--light-gray-70);
     --checkbox-size: calc(var(--font-size) + 2px);
-    --checkbox-ink: var(--light-gray-90) ; /*non-checked box border color*/
-    --checkbox-checked-ink: var(--dark-gray-30)  !important; /*used for the checkmark - uses background-color and border-color*/
-  /*--select-surface:  Appears that this is not used anywhere that I can locate - if you find a spot enter a color value here */
-    --bg-transient-notice: var(--dark-gray-50) !important; /*color for the buttons for saveRules, revertRules and refresh - popup container*/
-    --dashboard-bar-shadow: 0px 0px 0px 1px var(--default-ink-a4), 0px 1px 2px 0px #2200330a, 0px 2px 1px -1px #0730721f, 0px 1px 6px 0px #0e0d1a1f; /*line across screen under tabs*/
-    --dashboard-tab-ink: var(--default-ink);
-    --dashboard-tab-active-ink: var(--violet-40) !important;
+    --checkbox-ink: var(--default-ink);
+    --checkbox-checked-ink: #bb86fc;
+  /*--select-surface:*/
+    --bg-transient-notice: var(--dark-gray-50);
+    --dashboard-bar-shadow: 0px 0px 0px 1px var(--default-ink-a4);
+    --dashboard-tab-active-ink: #bb86fc;
     --dashboard-tab-surface-hover: var(--default-surface-hover);
-  /* small i icons found throughout the dashboard and logger*/
-    --fg-icon-info-lvl-0-dimmed: #888 !important; /*found in My Rules/Setting tabs*/
+    --fg-icon-info-lvl-0-dimmed: #888;
     --fg-icon-info-lvl-0: inherit;
-    --fg-icon-info-lvl-1-dimmed: hsla(258, 57%, 35%, 1); /*found in  Filter Lists tab - default view*/
-    --fg-icon-info-lvl-1: hsla(258, 66%, 48%, 1); /* found in Filter Lists tab - hovered over*/
+    --fg-icon-info-lvl-1-dimmed: hsla(258, 57%, 35%, 1);
+    --fg-icon-info-lvl-1: hsla(258, 66%, 48%, 1);
     --info-lvl-2-ink: var(--yellow-50);
     --info-lvl-2-ink-hover: var(--yellow-60);
-    --fg-icon-info-lvl-3-dimmed: hsla(16, 100%, 50%, 0.5);/*found in Advanced Settings - default view*/
-    --fg-icon-info-lvl-3: hsla(16, 100%, 50%, 1); /*found in Advanced Settings - hovered over*/
+    --fg-icon-info-lvl-3-dimmed: hsla(16, 100%, 50%, 0.5);
+    --fg-icon-info-lvl-3: hsla(16, 100%, 50%, 1);
     --fg-icon-info-lvl-4-dimmed: hsla(0, 100%, 35%, 0.5);
     --fg-icon-info-lvl-4: hsla(0, 100%, 35%, 1);
     --large-icon-info-lvl-2: hsla(41, 100%, 47%, 1);
-  /**************************************************************/
-    --bg-tooltip: var(--dark-gray-50) !important;
-    --fg-tooltip: var(--light-gray-30) !important;
-    --bg-popup-cell-1: var(--dark-gray-50) !important; /*uBo popup window accesible from logger*/
-    --popup-power-ink: var(--violet-70) !important; /*uBo power icon - on color */
-    --popup-power-disabled-ink: var(--light-gray-60) !important; /*NOTE**** Please make it a FILL not a background...*/
-    --popup-power-ink-hover: var(--dark-gray-30) !important;
-    --bg-popup-cell-2: var(--dark-gray-30) !important; /*firewall container row line horizontal and vertical colours*/
+    --bg-tooltip: var(--dark-gray-50);
+    --fg-tooltip: var(--light-gray-30);
+    --bg-popup-cell-1: var(--dark-gray-50);
+    --popup-power-ink: var(--violet-70);
+    --popup-power-disabled-ink: var(--light-gray-60);
+    --popup-power-ink-hover: var(--dark-gray-30);
+    --bg-popup-cell-2: var(--dark-gray-50);
     --bg-popup-cell-label-filter: opacity(40%);
-    --fg-popup-cell-cname: var(--violet-80) !important;
+    --fg-popup-cell-cname: hsla(0, 0%, 53%, 0.3);
     --bg-popup-cell-allow: hsla(120, 40%, 75%, 1);
     --bg-popup-cell-allow-own: hsla(120, 100%, 30%, 1);
     --bg-popup-cell-noop: hsla(0, 0%, 75%, 1);
